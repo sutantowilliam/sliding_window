@@ -1,6 +1,5 @@
 # Sliding Window
 > Tugas Besar IF3130 Jaringan Komputer
-> [color=#79e584]
 
 ## Petunjuk Penggunaan Program
 Berikut adalah langkah-langkah dalam menjalankan program:
@@ -70,7 +69,7 @@ Digunakan untuk menuliskan data dari buffer ke file, dan mengirimkan ACK kepada 
 | Nama               | NIM      | Keterangan |
 | ------------------ | -------- | -----------|
 | Dewita Sonya T     | 13515021 |xxxxxxxxxxxx|
-| Iftitakhhul Zakiah | 13515114 |xxxxxxxxxxxx|
+| Iftitakhul Zakiah  | 13515114 |xxxxxxxxxxxx|
 | William            | 13515144 |xxxxxxxxxxxx|
 
 ## Pertanyaan
