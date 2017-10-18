@@ -78,6 +78,8 @@ Advertised Window merepresentasikan jumlah data yang dapat ditampung oleh receiv
 1. Langsung mengirim data sebanyak advertised windows
 2. Menunggu advertised window sebanyak 1 MSS (Maximum Segment Size)
 
+Jika advertised window yang dikirim sender bernilai nol, maka opsi pertama tidak dapat dilakukan karena tidak ada data yang bisa dikirim. Sedangkan opsi kedua yaitu dengan menunda pengiriman ACK hingga window berukuran 1 MSS, maka penundaan ini akan sangat lama karena advertised window tidak dapat bertambah. Oleh karena itu, sender menyalahi aturan yaitu dengan mengirimkan sebuah segmen terus menerus hingga receiver memberikan advertised window lebih dari nol.
+
 Jika advertised window yang dikirim sender bernilai nol, maka opsi pertama tidak dapat dilakukan karena tidak ada data yang bisa dikirim. Oleh karena itu untuk menanganinya, receiver menunda pengiriman ACK hingga ukuran window cukup besar.
 #### 2. Sebutkan field data yang terdapat TCP Header serta ukurannya, ilustrasikan, dan jelaskan kegunaan dari masing-masing field data tersebut!
 ![picture](tcpheader.png)
