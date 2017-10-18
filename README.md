@@ -68,9 +68,9 @@ Digunakan untuk menuliskan data dari buffer ke file, dan mengirimkan ACK kepada 
 
 | Nama               | NIM      | Keterangan |
 | ------------------ | -------- | -----------|
-| Dewita Sonya T     | 13515021 |xxxxxxxxxxxx|
-| Iftitakhul Zakiah  | 13515114 |xxxxxxxxxxxx|
-| William            | 13515144 |xxxxxxxxxxxx|
+| Dewita Sonya T     | 13515021 |Mengirim data ke receiver,Mengirim ACK, Sliding window, Receive buffer dan send buffer|
+| Iftitakhul Zakiah  | 13515114 |Membuat Logfile, Membuat laporan, Testing, Menggeser window size|
+| William            | 13515144 |Membaca file ke buffer, Menulis buffer ke file, Laporan, Membuat Logfile, Membuat checksum|
 
 ## Pertanyaan
 #### 1. Apa yang terjadi jika advertised window yang dikirim bernilai 0? Apa cara untuk menangani hal tersebut?
