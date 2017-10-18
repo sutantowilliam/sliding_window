@@ -15,15 +15,18 @@ Berikut adalah langkah-langkah dalam menjalankan program:
 
 ## Cara Kerja Sliding Window
 Pertama-tama, program sender akan membuat suatu UDP soket yang akan digunakan dalam komunikasi. Pada receiver, juga dilakuan pembuatan soket. Sender akan membaca file eksternal tiap char dan memasukkannya ke dalam buffer sender. Sebelum tiap data pada buffer dikirimkan, data akan "dibungkus" menjadi suatu segmen. Berikut adalah format segmen:
-| SOH(0x1) | Sequence Number | STX(0x2) | Data | ETX (0x3) | Checksum | 
-| -------- | --------------- | -------- | -----| ----------|----------|
-| 1 byte   | 4 byte          | 1 byte   | 1 byte | 1byte   | 1 byte   |
+
+| SOH(0x1) | Sequence Number | STX(0x2) | Data   | ETX (0x3) | Checksum | 
+| -------- | --------------- | -------- | ------ | --------- | ---------|
+| 1 byte   | 4 byte          | 1 byte   | 1 byte | 1byte     | 1 byte   |
+
 Checksum didapatkan dari jumlah setiap data yang dikrimkan dari SOH hingga ETX. Setelah segmen terbentuk, data akan dikirimkan pada receiver.
 
 Setelah receiver mendeteksi ada pesan yang masuk, receiver akan melakukan pengecekan terhadap header pesan beserta mengecek apakah sum dari data sama dengan nilai check sum yang dikirimkan. Jika checksum sesuai, berarti data yang diterima benar,dan data dimasukkan ke dalam buffer receiver.
 
 Data dari buffer receiver akan dituliskan ke dalam file output. Jika penulisan ke file output ini sudah berhasil, receiver akan mengirimkan ACK kepada sender. ACK ini berisi sequence number terakhir yang berhasil diterima receiver(terakhir jika dibaca dari seqnum awal, bukan yang benar-benar terakhir diterima. Di dalam segmen ACK ini juga dikirimkan Advertised Windows Size, yaitu banyaknya ruang kosong pada buffer receiver. Sehingga, sender tidak akan mengirimkan data yang banyaknya lebih besar dari Advertised Window Size. Berikut adalah format segmen ACK yang dikirimkan receiver:
-| ACK (0x6) | Next Sequence Number | Advertised Window Size | Checksum |
+
+| ACK (0x6) | Next Sequence Number | Advertised Window Size  | Checksum |
 | --------- | -------------------- | ----------------------- | -------- |
 | 1         | 4                    | 1                       | 1        |
 
@@ -64,7 +67,6 @@ Digunakan untuk menuliskan data dari buffer ke file, dan mengirimkan ACK kepada 
 
 ## Pembagian Tugas
 
-
 | Nama               | NIM      | Keterangan |
 | ------------------ | -------- | -----------|
 | Dewita Sonya T     | 13515021 |xxxxxxxxxxxx|
@@ -79,10 +81,6 @@ Advertised Window merepresentasikan jumlah data yang dapat ditampung oleh receiv
 
 Jika advertised window yang dikirim sender bernilai nol, maka opsi pertama tidak dapat dilakukan karena tidak ada data yang bisa dikirim. Oleh karena itu untuk menanganinya, receiver menunda pengiriman ACK hingga ukuran window cukup besar.
 #### 2. Sebutkan field data yang terdapat TCP Header serta ukurannya, ilustrasikan, dan jelaskan kegunaan dari masing-masing field data tersebut!
-
-> 
-> [color=#79e584]"DISINI KAYANYA MAU DIKASIH GAMBAR ILUSTRASI" INI NANTI PAS DIKUMPUL MAH PAKENYA GAMBAR DOWNLOAD JANGAN MAKE LINK GINI"
-![](https://fthmb.tqn.com/FHdeC8UhfnoaTE8jvZ4KlobWu1E=/1235x693/filters:fill(auto,1)/tcp-header-56a1adc85f9b58b7d0c1a24f.png)
 ![picture](tcpheader.png)
 
 * **Source Port Number** (2 bytes)
